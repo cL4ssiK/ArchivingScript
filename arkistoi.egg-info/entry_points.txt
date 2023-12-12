@@ -1,0 +1,2 @@
+[console_scripts]
+arkistoi = arkistoi:main

@@ -1,0 +1,27 @@
+{
+    "path": "C:\\kupialnx\\tannelaitetaa\\",
+    "uni": "jyu",
+    "jyu": {
+        "coursebeginning": [
+            "itk",
+            "tjt",
+            "tiep",
+            "fys",
+            "hyt",
+            "kem"
+        ],
+        "courselevel": [
+            "perus",
+            "aine",
+            "syventava"
+        ],
+        "foldernames": [
+            "it",
+            "it",
+            "it",
+            "fysiikka",
+            "humanistis-yhteiskuntatiet",
+            "kemia"
+        ]
+    }
+}
