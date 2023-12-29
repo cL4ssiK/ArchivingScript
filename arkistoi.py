@@ -3,7 +3,6 @@ import sys
 import os
 import json
 
-# TODO Muokkaa sellaiseksi että laittaa tiedoston oikean kurssin kansioon. jos kurssin kansiota ei ole luodaan sellainen.
 # TODO Tee help tiedosto ja komento mikä printtaa sen komentoriville.
 # TODO Tee komento, millä voi lisätä kurssi, arkistokansio parin asetuksiin.
 # TODO Lisää asetuksiin muita yliopistoja/kaikki kurssit jyulta.
@@ -24,6 +23,10 @@ class Archive:
         return self.working_directory + "\\" + folder
 
 
+    def file_address(self, file_name):
+        return file_name.split('.')[0].split('_')[0]
+
+
     # Returns destination address for each file. If folders don't exist, they are created.
     def get_destination_address(self, folder):
         base = self.archive_path
@@ -42,6 +45,10 @@ class Archive:
                 break
         if base == self.archive_path: # If file doesnt match any course it still archives.
             base = base + "\\unsorted"
+
+        if os.path.isfile(self.working_directory + '\\' + folder): # If there is files, they will be moved to correct folder. Naming course_assignment.end.
+            base = base + '\\' + self.file_address(folder)
+
         os.makedirs(base, exist_ok=True) # Makes directory if it doesn't exist.
         return base
 
@@ -120,8 +127,8 @@ def main():
         else:       
             files = sys.argv[1:]
             a.no_paramerters(files)
-    except:
-        print("No parameters given.")
+    except Exception as e:
+        print("No parameters given. " + e)
        
 
 if __name__ == "__main__":
