@@ -1,8 +1,0 @@
-arkistoi.py
-settings.json
-setup.py
-arkistoi.egg-info/PKG-INFO
-arkistoi.egg-info/SOURCES.txt
-arkistoi.egg-info/dependency_links.txt
-arkistoi.egg-info/entry_points.txt
-arkistoi.egg-info/top_level.txt
