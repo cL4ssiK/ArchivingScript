@@ -82,10 +82,15 @@ class Archive:
     
         self.no_paramerters(files)
 
+
     # Changes script settings
     def change_settings(self, setting, new_value):
         self.settings[setting] = new_value
         self.write_json_file("settings.json", self.settings)
+
+    # Prints instructions
+    def print_help(self):
+        print(self.read_file("instructions.txt"))
 
 
     # Reads .json file
@@ -107,6 +112,15 @@ class Archive:
         with open(file_path, 'w') as file:
             json.dump(data, file, indent=4)
 
+    # Reads normal .txt file.
+    @staticmethod
+    def read_file(name):
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+        file_path = os.path.join(script_dir, name)
+        with open(file_path, 'r') as file:
+            data = file.read()
+        return data
+
 
 # Main program
 def main():
@@ -123,7 +137,9 @@ def main():
             if sys.argv[1] == "-p" or sys.argv[1] == "-path":
                 a.change_settings("path", sys.argv[2])
             if sys.argv[1] == "-u" or sys.argv[1] == "-university":
-                a.change_settings("uni", sys.argv[2])  
+                a.change_settings("uni", sys.argv[2])
+            if sys.argv[1] == "-h" or sys.argv[1] == "-help":
+                a.print_help()  
         else:       
             files = sys.argv[1:]
             a.no_paramerters(files)

@@ -1,0 +1,18 @@
+Moves folders and files easily into given directory. 
+Chooses directory corresponding to course name. Creates new dir if matching dir is absent.
+
+arkistoi <file/dir name> <other> ...
+    Moves given files/dirs into archiving directory.
+arkistoi -a
+    Moves all content of working dir.
+arkistoi -e <file/dir name>
+    Moves all except given files/dirs.
+arkistoi -p (or -path) <path name>
+    Changes archiving path.
+arkistoi -u (or -university) <university name>
+    Changes the program to recognise given universitys course names.
+
+List of universitys available: (Under developement!)
+    - University of Jyväskylä
+
+
